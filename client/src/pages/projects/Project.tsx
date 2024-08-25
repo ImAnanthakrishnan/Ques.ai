@@ -5,6 +5,7 @@ import ProjectModal from "../../components/modals/ProjectModal";
 import { handleCreate } from "../../utils/actions";
 import useFetch from "../../hooks/useFetch";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 type Projects = {
   _id: string;
@@ -13,9 +14,10 @@ type Projects = {
   updatedAt: Date;
 };
 
-const Project = ({ show, setShow, handleClose }: HocPropsType) => {
-    const [triggerFetch,setTriggerFetch] = useState<boolean>(false);
+const Project = ({ show, setShow, handleClose,triggerFetch, setTriggerFetch}: HocPropsType) => {
   const { datas, loading, error } = useFetch<Projects>("/project",triggerFetch);
+  const navigate = useNavigate();
+  
   return (
     <section className="">
       <ProjectHeader />
@@ -25,9 +27,8 @@ const Project = ({ show, setShow, handleClose }: HocPropsType) => {
       </div>
       <section className="projects">
         {datas.map((item) => (
-          <div className="projects-inner" key={item._id}>
+          <div className="projects-inner" key={item._id} onClick={() => navigate(`/uploads/${item.name}`)}>
             <h1 className="projects-color">{item.name[0]}{item.name[1]}</h1>
-
             <h4 className="name">{item.name}</h4>
             <p className="episode">{item.episodes.length} Episodes</p>
             <p className="last-edited">Last edited</p>

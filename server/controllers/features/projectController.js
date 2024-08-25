@@ -6,7 +6,7 @@ export const createProject = asyncHandlder(async (req, res) => {
   const { name } = req.body;
   const helpers = new Helpers();
   if (!name) {
-    return helpers.sendMessage(res, 204, "No Content");
+    return helpers.sendMessage(res, 400, "Bad request");
   }
 
   let existingProject = await Project.findOne({ name });
@@ -28,7 +28,7 @@ export const createProject = asyncHandlder(async (req, res) => {
 export const getProject = asyncHandlder(async (req, res) => {
   const helpers = new Helpers();
 
-  const projects = await Project.find().sort({ createdAt: -1 });
+  const projects = await Project.find().sort({ updatedAt: -1 });
 
   if (!projects) {
     return helpers.sendMessage(res, 404, "No data found");

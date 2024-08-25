@@ -33,10 +33,12 @@ app.use(express.static(path.join(__dirname,'../frontend/src/assets/images'))); /
 
 //routes
 import projectRouter from './routes/features/project.js';
+import episodeRouter from './routes/features/episode.js';
 
 //setting
 const base = process.env.BASE_URL
 app.use(`${base}/project`,projectRouter);
+app.use(`${base}/episode`,episodeRouter);
 
 //error handler
 app.use(notFound);

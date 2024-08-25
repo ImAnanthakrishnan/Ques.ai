@@ -23,7 +23,7 @@ const useFetch = <T,>(url: string,triggerFetch:boolean) => {
           setLoading(false);
         }
       };
-  
+     
       fetchData();
     }, [url,triggerFetch]);
   
