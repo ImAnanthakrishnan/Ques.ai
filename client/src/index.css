@@ -29,3 +29,16 @@
         width: 100%;
     }
 }
+
+.upload-container{
+    height: 100%;
+    background-color: #ffff;
+    display: grid;
+    grid-template-columns: 300px auto;
+}
+
+@media screen and (max-width:1090px) {
+    .upload-container{
+        display: block;
+    }
+}

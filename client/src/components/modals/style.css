@@ -28,8 +28,29 @@
     max-width: 90%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: left;  /* Aligned text to the left */
+    position: relative;
+  }
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  .modal-header {
+    display: flex;
+     align-items: center;
+     margin-bottom: 20px;
+  }
+  .header-img {
+    width: 40px; /* Adjust the width to make the image smaller */
+    height: 40px; /* Adjust the height to maintain the aspect ratio */
+    margin-right: 10px; /* Space between the image and the text */
   }
   
+
   .modal-actions {
     display: flex;
     justify-content: flex-end;  /* Aligns buttons to the right */
