@@ -6,17 +6,24 @@ import { TbBoxMultiple } from "react-icons/tb";
 import { FaRegGem } from "react-icons/fa";
 import { IoSettingsOutline } from "react-icons/io5";
 import userImg from "../../assets/images/Rectangle 89.png";
+import { useAppSelector } from "../../app/hooks";
+import { IoMdClose } from "react-icons/io";
 type PropsType = {
   tab:string;
   setTab: React.Dispatch<React.SetStateAction<string>>;
   menuRef:React.RefObject<HTMLElement>
+  setProfile:React.Dispatch<React.SetStateAction<boolean>>;
+  resetMenu:()=>void
 }
-const UploadAside = ({tab,setTab,menuRef}:PropsType) => {
+const UploadAside = ({tab,setTab,menuRef,setProfile,resetMenu}:PropsType) => {
+
+  const {currentUser} = useAppSelector(data => data.user);
  
   return (
-    <aside className="upload-left" ref={menuRef}>
-      <header>
+    <aside className="upload-left" ref={menuRef} >
+      <header style={{display:'flex',justifyContent:'space-between'}}>
         <img src={logo} alt="logo" />
+        <span onClick={resetMenu} className="responsive-close"><IoMdClose size={20} color="red" /></span>
       </header>
 
       <nav className="aside-nav">
@@ -63,13 +70,13 @@ const UploadAside = ({tab,setTab,menuRef}:PropsType) => {
       </div>
       <div className="upload-bottom">
         <hr />
-        <div className="bottom-user">
+        <div className="bottom-user" onClick={() => setProfile(true)}>
           <div className="image">
             <img src={userImg} alt="userProfile" />
           </div>
           <div className="details">
-            <h5>Username</h5>
-            <p>username@gmail.com</p>
+            <h5>{currentUser ? currentUser.name :'Username'}</h5>
+            <p>{currentUser ? currentUser.email : 'username@gmail.com'}</p>
           </div>
         </div>
       </div>

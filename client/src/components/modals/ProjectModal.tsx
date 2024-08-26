@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import "./style.css";
+import { useAppSelector } from "../../app/hooks";
 type PropsType = {
   show: boolean;
   handleClose: () => void;
-  handleCreate: (project: string) => void;
+  handleCreate: (project: string,token:string|null) => void;
   setTrigger?: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
@@ -14,14 +15,14 @@ const ProjectModal = ({
   setTrigger,
 }: PropsType) => {
   const [project, setProject] = useState<string>("");
-
+  const {token} = useAppSelector(data => data.user);
   const handleCreateProject = async () => {
     if (project.trim() === "") {
       console.error("Project Name can't be empty");
       return;
     }
 
-    await handleCreate(project);
+    await handleCreate(project,token);
 
     // Close the modal
     handleClose();

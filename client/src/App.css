@@ -38,7 +38,7 @@ body{
 
 .auth-left-logo img{
   width: 170px;
-  height: 30px;
+  height: 35px;
 }
 
 
@@ -61,7 +61,7 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 35px;
 }
 
 .auth-right-logo img{
@@ -113,11 +113,51 @@ body{
     justify-content: space-between;
     color: black;
     margin-bottom: 1.25rem;
+    font-size: .95rem;
 }
 .extra-form span{
     color: #085FCE;
 }
+.underline{
+    display: flex;
+    margin-top: 20px;
+    align-items: center;
+    color:  #646464;
+    font-weight: 700;
+}
+.underline div{
+    border: 1px solid #DBDBDB;
+    width: 180px;
+    height: 1px;
+}
+.underline p{
+    margin: 0 .75em;
+}
 
+.google-auth{
+    display: flex;
+    margin-top: 30px;
+    width:360px;
+    height: 45px;
+    background-color: #fff; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    color:  #3C3C3C;
+    font-weight: 700;
+    align-items: center;
+    cursor: pointer;
+    border: 1px solid #999999;
+    border-radius: 5px;
+}
+
+.google-auth img{
+ width: 23px;
+ height: 23px;
+ margin-left: 20px;
+}
+
+.google-auth p{
+    margin-left: 20px;
+}
 @media screen and (max-width:905px){
     .auth-left{
         display: none;
@@ -332,7 +372,9 @@ body{
     padding: 1em .75em;
     
 }
-
+.responsive-close{
+    display: none;
+}
 .upload-left img{
     width: 40%;
     margin-left: 1.5em;
@@ -451,8 +493,35 @@ hr{
 
 .right-header .bell,.logout{
     border: 0;
-    border-radius: 100%;
-    background-color: #fff;
+    border-radius: 50%; /* Makes the background fully rounded */
+    background-color: #fff; /* Sets the background color */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow effect */
+    padding: 5px; /* Adds some padding inside the rounded background */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.right-header .bell{
+    margin-right: 5px;
+}
+
+@media screen and (max-width:517px){
+    .right-header .settings{
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    .right-header .bell,.logout{
+        background: none;
+        box-shadow: none;
+        border: 0;
+        border-radius: 100%;
+        padding: 0;
+        display: block;
+    }
+    .right-header .bell{
+        margin-right: 0;
+    }
 }
 
 .podcast-header{
@@ -589,6 +658,9 @@ hr{
     .upload-left{
         display: none;
     }
+    .responsive-close{
+        display: block;
+    }
     .responsive-nav{
         display: inline;
     }
@@ -689,3 +761,227 @@ hr{
     }
 }
 
+
+/*-------Edit transcript------*/
+
+.transcript-container{
+    width:90%;
+    margin: 2em auto;
+    height: 80vh;
+}
+
+.transcript-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.transcript-header div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 210px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.transcript-header button{
+    width: 100px;
+    height: 30px;
+    background-color: black;
+    color: #fff;
+    font-size: .85rem;
+    font-weight: 500;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.discard-btn{
+    border: 1px solid red;
+    color: red !important;
+    background: none !important;
+}
+
+.transcript-content{
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    border-radius: 10px;
+    padding: 1.5em 2em;
+    margin-top: 22px;
+    height: 480px;
+    overflow-y: auto;
+}
+
+.transcript-content h5{
+    color: #7E22CE;
+    font-size: 1rem;
+}
+
+.transcript-content .transcript-btn{
+    margin-top: 20px;
+    color:  #63635E;
+    font-size: 1rem;
+    line-height: 23px;
+}
+
+.transcript-btn textarea{
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    resize: none;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    white-space: pre-wrap;
+    background-color: transparent;
+}
+
+
+/*----------Accounts----------*/
+
+.account-container{
+    width:90%;
+    margin: 2em auto;
+    height: 80vh;
+}
+
+.account-header{
+    display: flex;
+    align-items: center;
+}
+
+.account-header div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 240px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.account-content .content-inner{
+    display: flex;
+    align-items: center;
+    margin-top: 35px;
+}
+
+.account-content img{
+    width: 100px;
+    margin-right: 20px;
+}
+
+.account-content .content-input{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+.account-content label {
+    margin-bottom: 5px;
+    font-weight: 600; 
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.account-content input{
+    height: 30px;
+    width: 250px;
+    border: 1px solid #999999;
+    border-radius: 5px;
+    padding: 0 .75em;
+}
+
+.content-inner-sub{
+    margin-top: 30px;
+}
+.content-update-btn{
+  margin-top: 10px;
+  background-color: #646464;
+  border-radius: 8px;
+  color: #EDD9FF;
+  width: 100px;
+  height: 35px;
+  font-size: medium;
+  cursor: pointer;
+}
+
+.content-update-btn :hover{
+    background-color: #6C1EBA;
+}
+
+
+.styled-div{
+    margin-top: 25px;
+    height: 80px;
+    border-radius: 10px;
+    background: linear-gradient(to right, #FFFFFF 0%, #EDD9FF 100%);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color:#7E22CE;
+    font-size: 1.25rem;
+    padding: 0 2em;
+}
+
+.styled-div strong {
+    font-weight: bold; /* Optional: make the strong text bold */
+}
+
+.styled-div button {
+    background-color: #7E22CE;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5em 1em;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.styled-div button:hover {
+    background-color: #6C1EBA; /* Slightly darker on hover */
+}
+
+@media screen and (max-width:745px) {
+    .account-content .content-inner{
+        flex-direction: column;
+        align-items: center;
+    }
+    .account-content .content-input{
+        margin-top: 15px;
+    }
+    .content-update-btn{
+        float: right;
+        margin-bottom: 10px;
+        margin-right: 25px;
+        height: 30px;
+    }
+}
+
+@media screen and (max-width:470px) {
+    .styled-div{
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        height: auto;
+        padding: 1em;
+    }
+    .text-container{
+        margin-bottom: 8px;
+    }
+    .styled-div button{
+        margin-top: 8px;
+        margin-left: 0;
+    }
+    .content-inner-sub{
+        margin-top: 50px;
+    }
+
+}
+
+.errors{
+    color: red;
+    margin-top: 5px;
+}

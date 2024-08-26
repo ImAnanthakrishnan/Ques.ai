@@ -75,3 +75,52 @@ export const getEpisode = asynchandler(async (req, res) => {
 
   helpers.sendMessage(res, 200, "Success", data);
 });
+
+export const editEpisode = asynchandler(async (req, res) => {
+  const { projectName } = req.params;
+  const { transcript, id } = req.body;
+  const helpers = new Helpers(); 
+ 
+  if (!transcript || !id) {
+    return helpers.sendMessage(res, 400, "Bad request");
+  }
+
+  const existingEpisode = await Episode.findById(id);
+
+  if (!existingEpisode) {
+    return helpers.sendMessage(res, 404, "No data found");
+  }
+
+  existingEpisode.transcript = transcript;
+  try {
+    const updatedEpisode = await existingEpisode.save();
+    helpers.sendMessage(res, 200, "Success", updatedEpisode);
+  } catch (error) {
+    return helpers.sendMessage(res, 500, "Failed to update");
+  }
+});
+
+export const deleteEpisode = asynchandler(async(req,res) => {
+ 
+  const {projectName : id} = req.params;
+
+  const helpers = new Helpers();
+
+  if (!id) {
+    return helpers.sendMessage(res, 400, "Bad request");
+  }
+
+  const existingEpisode = await Episode.findById(id);
+
+  if (!existingEpisode) {
+    return helpers.sendMessage(res, 404, "No data found");
+  }
+
+  try {
+    const deleteEpisode = await Episode.deleteOne({_id:id});
+    helpers.sendMessage(res, 200, "Successfully deleted");
+  } catch (error) {
+    return helpers.sendMessage(res, 500, "Failed to delete");
+  }
+
+})

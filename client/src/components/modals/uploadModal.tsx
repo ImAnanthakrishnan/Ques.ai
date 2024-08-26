@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import "./style.css";
+import { useAppSelector } from "../../app/hooks";
 type PropsType = {
   show: boolean;
   handleClose: () => void;
-  handleUpload: (inputData: { name: string; link: string },project?:string) => void;
+  handleUpload: (inputData: { name: string; link: string },project?:string,token?:string|null) => void;
   text: string;
   img: string;
   project?:string;
-   setTrigger?:React.Dispatch<React.SetStateAction<boolean>>
+  setTrigger?:React.Dispatch<React.SetStateAction<boolean>>
+  setClick: React.Dispatch<React.SetStateAction<boolean>>
 };
 
 type InputType = {
@@ -22,13 +24,14 @@ const UploadModal = ({
   text,
   img,
   project,
-  setTrigger
+  setTrigger,
+  setClick
 }: PropsType) => {
   const [inputData, setInputData] = useState<InputType>({
     name: "",
     link: "",
   });
-
+ const {token} = useAppSelector(data => data.user);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputData((prev) => ({
       ...prev,
@@ -42,10 +45,12 @@ const UploadModal = ({
       return;
     }
       
-      await handleUpload(inputData, project);
+      await handleUpload(inputData, project,token);
       
       // Close the modal
       handleClose();
+
+      setClick(true);
 
       // Trigger a re-fetch of the data if setTrigger is provided
       if (setTrigger) {
@@ -80,6 +85,11 @@ const UploadModal = ({
             onChange={handleChange}
           />
           <div className="modal-actions">
+            <button style={{width:"130px",background:'none',color:'green',border:0}}
+            onClick={() => {setClick(true),handleClose()}}
+            >
+              view
+            </button>
             <button
               className="create-button"
               style={{ width: "130px", backgroundColor: "black" }}
