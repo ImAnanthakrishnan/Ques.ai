@@ -5,7 +5,6 @@ import { PiBell } from "react-icons/pi";
 import { GoHome } from "react-icons/go";
 import rss from "../../assets/images/image 1 (1).png";
 import yt from "../../assets/images/image 2 (1).png";
-import upld from "../../assets/images/image 3.png";
 import upld1 from "../../assets/images/ic_round-upload (1).png";
 import AddPodcast from "../../components/podcasts/AddPodcast";
 import Table from "../../components/podcasts/Table";
@@ -43,7 +42,8 @@ const Upload = ({
     `/episode/${project}`,
     triggerFetch
   );
-
+  console.log(loading);//need to update
+  console.log(error);//need to update
   const [tab, setTab] = useState<string>("add");
   const [text, setText] = useState<string>("");
   const [img, setImg] = useState<string>("");

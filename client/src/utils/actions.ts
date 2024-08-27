@@ -35,7 +35,7 @@ export const handleCreate = async (name: string,token:string|null) => {
     }
   };
 
-export const handleUpload = async(inputData:{name:string,link:string},project:string='',token:string|null) => {
+export const handleUpload = async(inputData:{name:string,link:string},project:string='',token:string|null|undefined) => {
   const {name,link : transcript} = inputData;
   const authToken = {
     headers: {

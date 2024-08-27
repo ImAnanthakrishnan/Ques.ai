@@ -1,4 +1,4 @@
-import React from 'react'
+
 import Logo from '../../assets/images/QuesLogo 2.png';
 import { FaRegBell } from "react-icons/fa";
 import { FiSettings } from "react-icons/fi";

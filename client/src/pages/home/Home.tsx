@@ -1,4 +1,3 @@
-import { useState } from "react";
 import ProjectHeader from "../../components/headers/ProjectHeader";
 import dispImg from "../../assets/images/Group 16.png";
 import ModalHoc, { HocPropsType } from "../../components/hoc/ModalHoc";

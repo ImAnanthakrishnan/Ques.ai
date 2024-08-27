@@ -4,7 +4,7 @@ import ModalHoc, { HocPropsType } from "../../components/hoc/ModalHoc";
 import ProjectModal from "../../components/modals/ProjectModal";
 import { handleCreate } from "../../utils/actions";
 import useFetch from "../../hooks/useFetch";
-import { useState } from "react";
+
 import { useNavigate } from "react-router-dom";
 
 type Projects = {
@@ -25,6 +25,8 @@ const Project = ({
     "/project",
     triggerFetch
   );
+  console.log(loading);//need to update
+  console.log(error);//need to update
   const navigate = useNavigate();
 
   return (
