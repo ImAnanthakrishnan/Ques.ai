@@ -19,7 +19,7 @@ DB_CONNECT.connect();
 
 //cors configuration -> preflight options
 const corsOption = {
-    origin:true,
+    origin:process.env.CLIENT_URL,
     methods:['GET','POST','PUT','PATCH','DELETE']
 }
 
