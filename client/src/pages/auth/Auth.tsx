@@ -87,6 +87,9 @@ const dispatch = useAppDispatch();
           <img src={google} alt="" />
           <p>Continue with Google</p>
         </div>
+        <div className="create-account">
+          <span>Don't have an account?<strong>Create Account</strong></span>
+        </div>
       </div>
     </section>
   );

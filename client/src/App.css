@@ -158,12 +158,25 @@ body{
 .google-auth p{
     margin-left: 20px;
 }
+
+.create-account{
+    margin-top: 20px;
+    color: #3C3C3C;
+}
+
+
+.create-account strong{
+    margin-left: 5px;
+    color:  #005AD5;
+}
 @media screen and (max-width:905px){
     .auth-left{
         display: none;
     }
     .auth-container{
         display: block;
+        width: 95%;
+        margin: 0 auto;
     }
 }
 
