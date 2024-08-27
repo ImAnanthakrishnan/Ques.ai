@@ -66,7 +66,7 @@ const dispatch = useAppDispatch();
             {errors.email && <p className="errors">{errors.email}</p>}
           </div>
           <div className="auth-input">
-            <input type="text" placeholder="Password" name="password" value={formData.password} onChange={handleChange}/>
+            <input type="password" placeholder="Password" name="password" value={formData.password} onChange={handleChange}/>
             {errors.password && <p className="errors">{errors.password}</p>}
           </div>
           <div className="extra-form">
