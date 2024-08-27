@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./style.css";
 import { useAppSelector } from "../../app/hooks";
+import { useNavigate } from "react-router-dom";
 type PropsType = {
   show: boolean;
   handleClose: () => void;
@@ -14,6 +15,7 @@ const ProjectModal = ({
   handleCreate,
   setTrigger,
 }: PropsType) => {
+  const navigate = useNavigate();
   const [project, setProject] = useState<string>("");
   const {token} = useAppSelector(data => data.user);
   const handleCreateProject = async () => {
@@ -26,7 +28,7 @@ const ProjectModal = ({
 
     // Close the modal
     handleClose();
-
+    navigate('/projects');
     // Trigger a re-fetch of the project list if setTrigger is provided
     if (setTrigger) {
       setTrigger(prev => !prev);
